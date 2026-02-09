@@ -1,37 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Dale Carnegie AI Trainer
 
-## Getting Started
+A web app that acts as a Dale Carnegie–style coach: you describe a challenge or feeling, and the AI responds with a diagnosis, which principles to apply, and a practical action plan—all based on the 53 principles from the Dale Carnegie training (human relations, communication, and stress management).
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Chat** – Describe a situation; get structured feedback (diagnosis, principles, action plan) with streaming responses.
+- **Role-Play** – Type a phrase you plan to say; the AI evaluates it against the principles (especially “don’t criticize”) and suggests a better version.
+- **Application Diary** – Record “Incident Reports”: situation, principles used, result, and reflection.
+- **Principles Library** – Browse all 53 principles with explanation and example, filtered by category.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Next.js 16** (App Router), **TypeScript**, **Tailwind CSS 4**, **shadcn/ui**
+- **Vercel AI SDK** for streaming chat (configurable provider, e.g. OpenAI, Groq)
+- **localStorage** for diary and chat history (no auth or database)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Getting started
 
-## Learn More
+1. **Clone and install**
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   git clone <repo-url>
+   cd DaleCassio
+   npm install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Environment**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   Copy `.env.example` to `.env.local` and set your AI provider API key (e.g. `GROQ_API_KEY` or `OPENAI_API_KEY`). See `.env.example` for variable names.
 
-## Deploy on Vercel
+3. **Run**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   npm run dev
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# dale-carnegie-principles
+   Open [http://localhost:3000](http://localhost:3000). The app redirects to `/chat`.
+
+## Scripts
+
+| Command         | Description                |
+|----------------|----------------------------|
+| `npm run dev`  | Start dev server           |
+| `npm run build`| Production build           |
+| `npm run start`| Run production server      |
+| `npm run lint` | Run ESLint                 |
+
+## Project docs
+
+- **AGENT.md** – Conventions and structure for the code agent (Cursor Agent).
+- **CLAUDE.md** – High-level project context for AI assistants.
+- **PLAN_PROJECT.md** – Implementation plan and phases.
+- **CONTEXT.md** – Full reference for the 53 Dale Carnegie principles (explanations and examples).
+
+## Learn more
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [shadcn/ui](https://ui.shadcn.com)
+- [Vercel AI SDK](https://sdk.vercel.ai/docs)
